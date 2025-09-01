@@ -25,5 +25,25 @@ type Dipendente =  {
   sesso: 'm' | 'f',
   anniDiServizio: number[],
   readonly emailAziendale: string,
-  contratto:'indeterminato'|'determinato'|'freelance'
+  contratto:'indeterminato' | 'determinato' | 'freelance'
+}
+
+// Snack 3
+type Developer = Dipendente & {
+  livelloEsperienza: 'Junior' | 'Med' | 'Senior',
+  linguaggi?: string[],
+  certificazione: string[]
+}
+
+type ProjectManager = Dipendente & {
+  teamSize: null | number,
+  budgetGestito?: number,
+  stakeholderPrincipali: string[]
+}
+
+type Team = {
+  nome: string,
+  progettoAttuale: null | string,
+  budget: number,
+  membri: [ProjectManager,Developer, ...Developer[]]
 }
